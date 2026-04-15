@@ -15,13 +15,14 @@ public class FullNameParser {
         String fullName = scanner.nextLine().trim();
         spiltFullName = fullName.split(" ");
         int length = spiltFullName.length;
-        if (length ==1){
+
+
+        if (length ==1 && !spiltFullName[0].isEmpty()){
             firstName = spiltFullName[0];
             middleName = "none";
             lastName = "none";
             suffix= "none";
-        }
-        else if (length == 2){
+        } else if (length == 2){
             firstName = spiltFullName[0];
             middleName = "none";
             lastName = spiltFullName[1];
@@ -37,13 +38,17 @@ public class FullNameParser {
             lastName = spiltFullName[1].replace(","," ");
             suffix = spiltFullName[2];
 
-        }
-        else if (length ==4){
+        } else if (length ==4){
             firstName = spiltFullName[0];
             middleName = spiltFullName[1];
             lastName = spiltFullName[2].replace(","," ");
             suffix = spiltFullName[3];
+        } else {
+            System.out.println("Invalid Format");
         }
+
+
+
         System.out.println("FirstName: "+firstName);
         System.out.println("MiddleName: "+middleName);
         System.out.println("LastName: "+lastName);
